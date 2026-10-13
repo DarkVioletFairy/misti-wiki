@@ -14,7 +14,9 @@
     "test:api": "cd apps/api && bundle exec rails test",
     "db:prepare": "cd apps/api && bundle exec rails db:prepare",
     "db:prepare:test": "cd apps/api && RAILS_ENV=test bundle exec rails db:prepare",
-    "db:migrate": "cd apps/api && bundle exec rails db:migrate"
+    "db:migrate": "cd apps/api && bundle exec rails db:migrate",
+    "db:seed": "cd apps/api && bundle exec rails db:seed",
+    "admin:create": "cd apps/api && bundle exec rails admin:create"
   },
   "devDependencies": {
     "concurrently": "^9.2.1"

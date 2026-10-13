@@ -61,9 +61,18 @@ set -a
 source .env
 set +a
 pnpm db:prepare
+pnpm db:seed
 ```
 
-### 5. Start the web and API applications
+### 5. Create the first owner account
+
+```sh
+ADMIN_EMAIL=admin@example.test ADMIN_PASSWORD=replace-with-a-long-unique-password pnpm admin:create
+```
+
+This command can be run again to reset that owner's password. Keep the password out of shell history in production workflows.
+
+### 6. Start the web and API applications
 
 ```sh
 set -a
@@ -84,6 +93,8 @@ pnpm build
 pnpm lint
 pnpm test
 pnpm db:migrate
+pnpm db:seed
+ADMIN_EMAIL=admin@example.test ADMIN_PASSWORD=your-password pnpm admin:create
 ```
 
 `pnpm test` runs Nuxt unit tests and Rails tests. The first feature work should add tests for the behavior it introduces.

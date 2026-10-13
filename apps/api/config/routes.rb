@@ -8,6 +8,29 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get "health", to: "health#show"
+      resource :session, only: %i[create show destroy]
+
+      namespace :public do
+        get "pages", to: "pages#index"
+        get "pages/:locale/:slug", to: "pages#show", as: :page
+        get "game-entities/:entity_type", to: "game_entities#index", as: :game_entities
+      end
+
+      namespace :admin do
+        resources :templates, only: %i[index create] do
+          member do
+            post "revisions", action: :create_revision
+            patch "revisions/:revision_id/publish", action: :publish_revision
+          end
+        end
+        resources :pages, only: %i[index create] do
+          member do
+            post "revisions", action: :create_revision
+            patch "publish/:revision_id", action: :publish
+            patch "unpublish"
+          end
+        end
+      end
     end
   end
 
