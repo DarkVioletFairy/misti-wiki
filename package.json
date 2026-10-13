@@ -1,0 +1,22 @@
+{
+  "name": "ss-info",
+  "private": true,
+  "packageManager": "pnpm@12.5.1",
+  "scripts": {
+    "dev": "concurrently -k -n web,api -c cyan,magenta \"pnpm dev:web\" \"pnpm dev:api\"",
+    "dev:web": "pnpm --dir apps/web dev",
+    "dev:api": "cd apps/api && bundle exec rails server -p 3001",
+    "build": "pnpm --dir apps/web build",
+    "lint": "pnpm --dir apps/web lint",
+    "typecheck": "pnpm --dir apps/web typecheck",
+    "test": "pnpm test:web && pnpm db:prepare:test && pnpm test:api",
+    "test:web": "pnpm --dir apps/web test",
+    "test:api": "cd apps/api && bundle exec rails test",
+    "db:prepare": "cd apps/api && bundle exec rails db:prepare",
+    "db:prepare:test": "cd apps/api && RAILS_ENV=test bundle exec rails db:prepare",
+    "db:migrate": "cd apps/api && bundle exec rails db:migrate"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}

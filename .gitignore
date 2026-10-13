@@ -1,0 +1,28 @@
+# Environment and secret files
+.env
+.env.*
+!.env.example
+*.key
+/docs/
+
+# Node and Nuxt
+node_modules/
+.pnpm-store/
+.nuxt/
+.output/
+coverage/
+*.tsbuildinfo
+
+# Ruby and Rails
+/apps/api/.bundle/
+/apps/api/log/*
+/apps/api/tmp/*
+/apps/api/storage/*
+!/apps/api/storage/.keep
+/apps/api/vendor/bundle/
+
+# Local tooling and operating system files
+.DS_Store
+.idea/
+.vscode/
+AGENTS.md

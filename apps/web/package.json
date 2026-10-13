@@ -1,0 +1,27 @@
+{
+  "name": "@ss-info/web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "test": "vitest run --passWithNoTests",
+    "typecheck": "nuxt typecheck"
+  },
+  "dependencies": {
+    "nuxt": "^3.21.11",
+    "vue": "^3.5.40",
+    "vue-router": "^5.2.0"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^1.15.1",
+    "eslint": "^10.12.0",
+    "typescript": "^5.7.3",
+    "vitest": "^4.0.18",
+    "vue-tsc": "^2.2.12"
+  }
+}
